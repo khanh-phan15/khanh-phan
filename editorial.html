@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Khanh Phan Branding</title>
+  <style>
+    body {
+      font-family: Courier, monospace;
+      align-items: center;
+      height: 100vh;
+      background-color: rgba(250, 249, 247, 1);
+    }
+
+    .menu {
+  display: flex;
+  margin: 0px;
+}
+
+.menu a {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: black;
+}
+
+.menu a:hover {
+  color: gray;
+}
+
+.menu a:nth-child(1) {
+  margin-right: 475px;
+}
+
+.menu a:nth-child(2) {
+  margin-right: 190px;
+}
+
+    .khanhphan {
+      font-family: 'Boreal', sans-serif;
+      font-size: 90pt;
+      margin: 10px 0 0 15px;
+    }
+
+    .khanhphan span:first-child {
+      margin-right: 178px;
+    }
+
+    .bio {
+      font-family: inherit;
+      font-size: 16px;
+      width: 450px;
+      margin: 20px 0 0 20px;
+    }
+
+    .category-menu {
+      display: flex;
+      flex-direction: column;
+      margin: -100px 0 0 625px;
+      gap: 10px;
+    }
+
+    .category-menu .item {
+      position: relative;
+      font-size: 18px;
+      cursor: pointer;
+      width: 300px;
+      padding-bottom: 4px;
+      color: black;
+      transition: color 0.3s ease;
+      text-decoration: none;
+    }
+
+    .category-menu .item:hover {
+      color: rgb(140, 0, 0);
+    }
+
+    .category-menu .item::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background-color: black;
+      transition: all 0.3s ease;
+    }
+
+    .category-menu .item:hover::after {
+      width: 115%;
+      background-color: rgb(140, 0, 0);
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      margin: 90px 0px 0px 20px;
+      width: 100vw;
+    }
+
+    .card-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .card-header {
+      display: flex;
+      margin-bottom: 20px;
+      font-family: inherit;
+      font-size: 16px;
+    }
+
+    .card-header .proj-number {
+      margin-right: 548px;
+    }
+
+    .card-header .date {
+      margin-right: 258px;
+    }
+
+    .card-header .pro {
+      flex-shrink: 0;
+    }
+
+    .carousel-description-row {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 40px;
+    }
+
+    .carousel {
+      position: relative;
+      width: 900px;
+      height: 600px;
+      overflow: hidden;
+    }
+
+    .carousel video,
+    .carousel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+
+    .carousel video.active,
+    .carousel img.active {
+      display: block;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(255, 255, 255, 0.7);
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      padding: 4px 8px;
+      z-index: 2;
+    }
+
+    .arrow.left {
+      left: 0;
+    }
+
+    .arrow.right {
+      right: 0;
+    }
+
+    .description {
+      flex-grow: 1;
+      max-width: 350px;
+      font-family: Courier, monospace;
+      font-size: 16px;
+    }
+    .carousel video,
+.carousel img {
+  display: none;
+}
+.carousel video.active,
+.carousel img.active {
+  display: block;
+}
+
+  </style>
+</head>
+<body>
+  <div class="menu">
+    <a href="index.html">[ UNZIP ]</a>
+    <a href="events.html">[ events ]</a>
+    <a href="contact.html">[ contact ]</a>
+  </div>
+  
+
+  <div class="khanhphan"><span>KHANH</span><span>PHAN</span></div>
+  <div class="bio">
+    Khanh Phan is a graphic designer with a strong focus on editorial, branding, and UI/UX design, currently based in New York City. She has been studying Communication Design at Parsons School of Design since 2023.
+  </div>
+
+  <div class="category-menu">
+    <a class="item" href="branding.html">Branding</a>
+    <a class="item" href="editorial.html">Editorial</a>
+    <a class="item" href="uiux.html">UI/UX</a>
+    <a class="item" href="finearts.html">Fine Arts</a>
+  </div>
+  
+
+  <div class="project-card">
+    <div class="card-content">
+      <div class="card-header">
+        <div class="proj-number">[ 01 ]</div>
+        <div class="date">Apr 2025</div>
+        <div class="pro">Not A House, But A Story</div>
+      </div>
+      <div class="carousel-description-row">
+        <div class="carousel" data-project="1">
+          <button class="arrow left" onclick="prevSlide(1)">‹</button>
+
+          <video src="images/editorial/Screen Recording 2025-04-18 at 10.20.58 PM 3.mov" class="active" muted loop></video>
+          <img src="images/editorial/homebook ig (2)-01 3.JPG" alt="Beauty 3" />
+          <img src="images/editorial/photo-output.JPEG" alt="Beauty 3" />
+          <img src="images/editorial/photo-output1.JPEG" alt="Beauty 3" />
+          <img src="images/editorial/homebook ig (2)-05 3.jpg" alt="Beauty 3" />
+          <img src="images/editorial/homebook ig (2)-06 3.JPG" alt="Beauty 3" />
+          <img src="images/editorial/homebook ig (2)-07 3.JPG" alt="Beauty 3" />
+          <img src="images/editorial/homebook ig (2)-02 3.JPG" alt="Beauty 4" />
+
+          <button class="arrow right" onclick="nextSlide(1)">›</button>
+        </div>
+        <div class="description">
+            HOME is more than just a place — it is a feeling, a memory, a thread woven from love, loss, and longing. This publication curates three texts that reflect my personal interpretation of HOME.        </div>
+      </div>
+      
+    </div>
+  </div>
+<!-- Project Card 2 -->
+<div class="project-card">
+    <div class="card-content">
+      <div class="card-header">
+        <div class="proj-number">[ 02 ]</div>
+        <div class="date">Dec 2024</div>
+        <div class="pro">Calendar 2025</div>
+      </div>
+      <div class="carousel-description-row">
+        <div class="carousel" data-project="2">
+          <button class="arrow left" onclick="prevSlide(2)">‹</button>
+          <div class="carousel" data-project="2">
+            <button class="arrow left" onclick="prevSlide(2)">‹</button>
+            <img src="images/editorial/calendar1.JPG" alt="calendar 1" class="active" style="width: 100%; height: 100%; object-fit: cover;">
+            <img src="images/editorial/calendar2.JPG" alt="calendar 2" style="width: auto; height: 100%; object-fit: cover;">
+            <img src="images/editorial/calendar3.JPG" alt="calendar 3" style="width: 100%; height: 100%; object-fit: cover;">
+            <img src="images/editorial/calendar4.jpg" alt="calendar 4" style="width: auto; height: 100%; object-fit: cover;">
+            <img src="images/editorial/calendar5.JPG" alt="calendar 5" style="width: auto; height: 100%; object-fit: cover;">
+            <img src="images/editorial/calendar6.JPG" alt="calendar 6" style="width: auto; height: 100%; object-fit: cover;">
+            <img src="images/editorial/calendar7.JPEG" alt="calendar 7" style="width: 100%; height: 100%; object-fit: cover;">
+
+            <button class="arrow right" onclick="nextSlide(2)">›</button>
+          </div>
+          
+          <button class="arrow right" onclick="nextSlide(2)">›</button>
+        </div>
+        <div class="description">
+            Kim Hoang Paintings are traditional Vietnamese folk prints originating from Kim Hoang Village, near Hanoi. Known for their bold red and yellow backgrounds, they depict everyday life, folklore, and nature with a rustic charm.
+            “Xà Bông” Calendar was designed with a modern twist—featuring a snake intertwined with flowers that bloom each month, but still maintaining the main features of Kim Hoang paintings by its bold colors and illustration styles.      </div>
+    </div>
+  </div>
+  
+  <!-- Project Card 3 -->
+  <div class="project-card">
+    <div class="card-content">
+      <div class="card-header">
+        <div class="proj-number">[ 03 ]</div>
+        <div class="date">Dec 2024</div>
+        <div class="pro">Heritage In A Bowl</div>
+      </div>
+      <div class="carousel-description-row">
+        <div class="carousel" data-project="3">
+          <button class="arrow left" onclick="prevSlide(3)">‹</button>
+          <img src="images/editorial/Heritage in a bowl book.jpg" class="active" style="width: 100%; height: 100%; object-fit: cover;" />
+          <img src="images/editorial/heritage-mockup2.jpg" style="width: 100%; height: 100%; object-fit: cover;" />
+          <img src="images/editorial/heritage-mockup3.jpg" style="width: 100%; height: 100%; object-fit: cover;" />
+          <img src="images/editorial/heritage-mockup4.jpg" style="width: 100%; height: 100%; object-fit: cover;" />
+          <img src="images/editorial/heritage-mockup5.jpg" style="width: 100%; height: 100%; object-fit: cover;" />
+          <img src="images/editorial/heritage-mockup6.jpg" style="width: 100%; height: 100%; object-fit: cover;" />
+          <button class="arrow right" onclick="nextSlide(3)">›</button>
+        </div>
+        <div class="description">
+            For this project, I am transforming a Wikipedia page into a book design. I selected Vietnamese Cuisines as the topic and renamed it “Heritage in a Bowl”. To align with the theme, all food images in the book are presented in circular silhouettes. Additionally, I designed chopstick bookmarks to accompany the book.        </div>
+      </div>
+    </div>
+  </div>
+  
+    </div>
+  </div>
+  
+  <script>
+    const slides = {};
+
+    function updateCarousel(projectId, direction) {
+      const carousel = document.querySelector(`.carousel[data-project="${projectId}"]`);
+      const items = Array.from(carousel.querySelectorAll('video, img'));
+      slides[projectId] = (slides[projectId] ?? 0) + direction;
+
+      if (slides[projectId] < 0) slides[projectId] = items.length - 1;
+      if (slides[projectId] >= items.length) slides[projectId] = 0;
+
+      items.forEach((el, i) => {
+        el.classList.toggle('active', i === slides[projectId]);
+        if (el.tagName === 'VIDEO') {
+          if (i === slides[projectId]) {
+            el.play();
+          } else {
+            el.pause();
+            el.currentTime = 0;
+          }
+        }
+      });
+    }
+
+    function nextSlide(projectId) {
+      updateCarousel(projectId, 1);
+    }
+
+    function prevSlide(projectId) {
+      updateCarousel(projectId, -1);
+    }
+
+    document.querySelectorAll('video').forEach(video => {
+      video.addEventListener('mouseenter', () => video.play());
+      video.addEventListener('mouseleave', () => video.pause());
+    });
+  </script>
+</body>
+</html>

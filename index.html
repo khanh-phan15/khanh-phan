@@ -4,90 +4,95 @@
   <meta charset="UTF-8">
   <title>Khanh Phan</title>
   <style>
-    body {
+ body {
       font-family: Courier, monospace;
       align-items: center;
       height: 100vh;
       background-color: rgba(250, 249, 247, 1);
     }
-  
+
     .menu {
-      display: flex;
-      margin: 0px; /* top and left spacing */
-    }
-  
-    .menu button {
-      background: none;
-      border: none;
-      font-family: inherit;
-      font-size: 16px;
-      cursor: pointer;
-      padding: 10px 20px;
-    }
-  
-    .menu button:hover {
-      background-color: #eee;
-    }
-  
-    .menu button:nth-child(1) {
-      margin-right: 500px; /* Larger gap after UNZIP */
-    }
-  
-    .menu button:nth-child(2) {
-      margin-right: 280px; /* Smaller gap after events */
-    }
+  display: flex;
+  margin: 0px;
+}
+
+.menu a {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: black;
+}
+
+.menu a:hover {
+  color: gray;
+}
+
+.menu a:nth-child(1) {
+  margin-right: 475px;
+}
+
+.menu a:nth-child(2) {
+  margin-right: 190px;
+}
+
     .khanhphan {
-      font-family: 'Boreal', sans-serif; /* fallback in case Boreal fails */
+      font-family: 'Boreal', sans-serif;
       font-size: 90pt;
       margin: 10px 0 0 15px;
-      letter-spacing: auto; /* adds space between all letters */
     }
 
     .khanhphan span:first-child {
-      margin-right: 200px; /* extra space between KHANH and PHAN */
+      margin-right: 178px;
     }
-    .bio{
+
+    .bio {
       font-family: inherit;
       font-size: 16px;
       width: 450px;
       margin: 20px 0 0 20px;
     }
 
-  .category-menu {
-    display: flex;
-    flex-direction: column;
-    margin: -100px 0 0 650px;
-    gap: 10px;
-  }
+    .category-menu {
+      display: flex;
+      flex-direction: column;
+      margin: -100px 0 0 625px;
+      gap: 10px;
+    }
 
-  .category-menu .item {
-    position: relative;
-  font-size: 18px;
-  cursor: pointer;
-  width: 300px; /* or any width you prefer */
-  padding-bottom: 4px;
-  color: black; /* default text color */
-  transition: color 0.3s ease;
-  }
-  .category-menu .item:hover {
-  color: rgb(140, 0, 0); /* text turns gray on hover */
-}
+    .category-menu .item {
+      position: relative;
+      font-size: 18px;
+      cursor: pointer;
+      width: 300px;
+      padding-bottom: 4px;
+      color: black;
+      transition: color 0.3s ease;
+      text-decoration: none;
+    }
 
-  .category-menu .item::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 1px;
-    background-color: black;
-    transition: all 0.3s ease;
-  }
+    .category-menu .item:hover {
+      color: rgb(140, 0, 0);
+    }
 
-  .category-menu .item:hover::after {
-    width: 115%;
-    background-color: rgb(140, 0, 0);
-  }
+    .category-menu .item::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background-color: black;
+      transition: all 0.3s ease;
+    }
+
+    .category-menu .item:hover::after {
+      width: 115%;
+      background-color: rgb(140, 0, 0);
+    }
   
     
   .gallery {
@@ -122,19 +127,23 @@
 </head>
 <body>
   <div class="menu">
-    <button>[ UNZIP ]</button>
-    <button>[ events ]</button>
-    <button>[ contact ]</button>
+    <a href="index.html">[ UNZIP ]</a>
+    <a href="events.html">[ events ]</a>
+    <a href="contact.html">[ contact ]</a>
   </div>
-  <div class="khanhphan"> <span>KHANH</span><span>PHAN</span></div>
-  <div class="bio">Khanh Phan is a graphic designer with a strong focus on editorial, branding, and UI/UX design, currently based in New York City. She has been studying Communication Design at Parsons School of Design since 2023.</div>
-  <div class="category-menu">
-    <div class="item">Branding</div>
-    <div class="item">Editorial</div>
-    <div class="item">UI/UX</div>
-    <div class="item">Fine Arts</div>
+  
+
+  <div class="khanhphan"><span>KHANH</span><span>PHAN</span></div>
+  <div class="bio">
+    Khanh Phan is a graphic designer with a strong focus on editorial, branding, and UI/UX design, currently based in New York City. She has been studying Communication Design at Parsons School of Design since 2023.
   </div>
 
+  <div class="category-menu">
+    <a class="item" href="branding.html">Branding</a>
+    <a class="item" href="editorial.html">Editorial</a>
+    <a class="item" href="uiux.html">UI/UX</a>
+    <a class="item" href="finearts.html">Fine Arts</a>
+  </div>
   <div class="gallery">
     <video src="images/branding/beauty1.MOV" muted autoplay loop playsinline></video>
     <img src="images/branding/com1.jpg" alt="Work 2">

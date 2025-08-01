@@ -12,30 +12,32 @@
     }
 
     .menu {
-      display: flex;
-      margin: 0px;
-    }
+  display: flex;
+  margin: 0px;
+}
 
-    .menu button {
-      background: none;
-      border: none;
-      font-family: inherit;
-      font-size: 16px;
-      cursor: pointer;
-      padding: 10px 20px;
-    }
+.menu a {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: black;
+}
 
-    .menu button:hover {
-      background-color: #eee;
-    }
+.menu a:hover {
+  color: gray;
+}
 
-    .menu button:nth-child(1) {
-      margin-right: 475px;
-    }
+.menu a:nth-child(1) {
+  margin-right: 475px;
+}
 
-    .menu button:nth-child(2) {
-      margin-right: 190px;
-    }
+.menu a:nth-child(2) {
+  margin-right: 190px;
+}
 
     .khanhphan {
       font-family: 'Boreal', sans-serif;
@@ -69,6 +71,7 @@
       padding-bottom: 4px;
       color: black;
       transition: color 0.3s ease;
+      text-decoration: none;
     }
 
     .category-menu .item:hover {
@@ -189,10 +192,11 @@
 </head>
 <body>
   <div class="menu">
-    <button>[ UNZIP ]</button>
-    <button>[ events ]</button>
-    <button>[ contact ]</button>
+    <a href="index.html">[ UNZIP ]</a>
+    <a href="events.html">[ events ]</a>
+    <a href="contact.html">[ contact ]</a>
   </div>
+  
 
   <div class="khanhphan"><span>KHANH</span><span>PHAN</span></div>
   <div class="bio">
@@ -200,11 +204,12 @@
   </div>
 
   <div class="category-menu">
-    <div class="item">Branding</div>
-    <div class="item">Editorial</div>
-    <div class="item">UI/UX</div>
-    <div class="item">Fine Arts</div>
+    <a class="item" href="branding.html">Branding</a>
+    <a class="item" href="editorial.html">Editorial</a>
+    <a class="item" href="uiux.html">UI/UX</a>
+    <a class="item" href="finearts.html">Fine Arts</a>
   </div>
+  
 
   <div class="project-card">
     <div class="card-content">
@@ -324,7 +329,7 @@
         <div class="carousel" data-project="5">
           <button class="arrow left" onclick="prevSlide(5)">‹</button>
           <img src="images/branding/social1.jpg" class="active" style="width: 100%; height: 100%; object-fit: cover;" />
-          <img src="images/branding/social2.jpg" style="width: 100%; height: 100%; object-fit: cover;" />
+          <video src="images/branding/human chess animation final 2.mov" muted loop style="width: auto; height: 100%; object-fit: cover;"></video>
           <img src="images/branding/social3.jpg" style="width: 100%; height: 100%; object-fit: cover;" />
           <img src="images/branding/social4.JPEG" style="width: 100%; height: 100%; object-fit: cover;" />
           <img src="images/branding/social5.jpg" style="width: 100%; height: 100%; object-fit: cover;" />
@@ -332,6 +337,8 @@
           <img src="images/branding/social7.jpg" style="width: 100%; height: 100%; object-fit: cover;" />
           <img src="images/branding/social8.jpg" style="width: 100%; height: 100%; object-fit: cover;" />
           <img src="images/branding/social9.JPEG" style="width: 100%; height: 100%; object-fit: cover;" />
+          <img src="images/branding/social2.jpg" style="width: 100%; height: 100%; object-fit: cover;" />
+
           <button class="arrow right" onclick="nextSlide(5)">›</button>
         </div>
         <div class="description">
