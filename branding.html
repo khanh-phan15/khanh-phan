@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Khanh Phan Branding</title>
+  <style>
+    body {
+      font-family: Courier, monospace;
+      align-items: center;
+      height: 100vh;
+      background-color: rgba(250, 249, 247, 1);
+    }
+
+    .menu {
+      display: flex;
+      margin: 0px;
+    }
+
+    .menu button {
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: 16px;
+      cursor: pointer;
+      padding: 10px 20px;
+    }
+
+    .menu button:hover {
+      background-color: #eee;
+    }
+
+    .menu button:nth-child(1) {
+      margin-right: 475px;
+    }
+
+    .menu button:nth-child(2) {
+      margin-right: 190px;
+    }
+
+    .khanhphan {
+      font-family: 'Boreal', sans-serif;
+      font-size: 90pt;
+      margin: 10px 0 0 15px;
+    }
+
+    .khanhphan span:first-child {
+      margin-right: 178px;
+    }
+
+    .bio {
+      font-family: inherit;
+      font-size: 16px;
+      width: 450px;
+      margin: 20px 0 0 20px;
+    }
+
+    .category-menu {
+      display: flex;
+      flex-direction: column;
+      margin: -100px 0 0 625px;
+      gap: 10px;
+    }
+
+    .category-menu .item {
+      position: relative;
+      font-size: 18px;
+      cursor: pointer;
+      width: 300px;
+      padding-bottom: 4px;
+      color: black;
+      transition: color 0.3s ease;
+    }
+
+    .category-menu .item:hover {
+      color: rgb(140, 0, 0);
+    }
+
+    .category-menu .item::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background-color: black;
+      transition: all 0.3s ease;
+    }
+
+    .category-menu .item:hover::after {
+      width: 115%;
+      background-color: rgb(140, 0, 0);
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      margin: 90px 0px 0px 20px;
+      width: 100vw;
+    }
+
+    .card-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .card-header {
+      display: flex;
+      margin-bottom: 20px;
+      font-family: inherit;
+      font-size: 16px;
+    }
+
+    .card-header .proj-number {
+      margin-right: 548px;
+    }
+
+    .card-header .date {
+      margin-right: 258px;
+    }
+
+    .card-header .pro {
+      flex-shrink: 0;
+    }
+
+    .carousel-description-row {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 40px;
+    }
+
+    .carousel {
+      position: relative;
+      width: 900px;
+      height: 600px;
+      overflow: hidden;
+    }
+
+    .carousel video,
+    .carousel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+
+    .carousel video.active,
+    .carousel img.active {
+      display: block;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(255, 255, 255, 0.7);
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      padding: 4px 8px;
+      z-index: 2;
+    }
+
+    .arrow.left {
+      left: 0;
+    }
+
+    .arrow.right {
+      right: 0;
+    }
+
+    .description {
+      flex-grow: 1;
+      max-width: 350px;
+      font-family: Courier, monospace;
+      font-size: 16px;
+    }
+    .carousel video,
+.carousel img {
+  display: none;
+}
+.carousel video.active,
+.carousel img.active {
+  display: block;
+}
+
+  </style>
+</head>
+<body>
+  <div class="menu">
+    <button>[ UNZIP ]</button>
+    <button>[ events ]</button>
+    <button>[ contact ]</button>
+  </div>
+
+  <div class="khanhphan"><span>KHANH</span><span>PHAN</span></div>
+  <div class="bio">
+    Khanh Phan is a graphic designer with a strong focus on editorial, branding, and UI/UX design, currently based in New York City. She has been studying Communication Design at Parsons School of Design since 2023.
+  </div>
+
+  <div class="category-menu">
+    <div class="item">Branding</div>
+    <div class="item">Editorial</div>
+    <div class="item">UI/UX</div>
+    <div class="item">Fine Arts</div>
+  </div>
+
+  <div class="project-card">
+    <div class="card-content">
+      <div class="card-header">
+        <div class="proj-number">[ 01 ]</div>
+        <div class="date">May 2025</div>
+        <div class="pro">Mikie Sasano</div>
+      </div>
+      <div class="carousel-description-row">
+        <div class="carousel" data-project="1">
+          <button class="arrow left" onclick="prevSlide(1)">‹</button>
+
+          <video src="images/branding/beauty1.MOV" class="active" muted loop></video>
+          <video src="images/branding/beauty2.MOV" muted loop></video>
+          <img src="images/branding/beauty3.PNG" alt="Beauty 3" />
+          <img src="images/branding/beauty4.JPG" alt="Beauty 4" />
+
+          <button class="arrow right" onclick="nextSlide(1)">›</button>
+        </div>
+        <div class="description">
+          Mikie Sasano runs ONEBLOW, a family-owned sauna company in Shizuoka rooted in Japanese wellness culture. This certification logo is inspired by the Olympic pictograms, with the letter “M” shaped like a person sitting in a sauna, capturing both movement and stillness in a minimal, modern form.
+        </div>
+      </div>
+      
+    </div>
+  </div>
+<!-- Project Card 2 -->
+<div class="project-card">
+    <div class="card-content">
+      <div class="card-header">
+        <div class="proj-number">[ 02 ]</div>
+        <div class="date">March 2025</div>
+        <div class="pro">CỐM</div>
+      </div>
+      <div class="carousel-description-row">
+        <div class="carousel" data-project="2">
+          <button class="arrow left" onclick="prevSlide(2)">‹</button>
+          <div class="carousel" data-project="2">
+            <button class="arrow left" onclick="prevSlide(2)">‹</button>
+            <img src="images/branding/com1.jpg" alt="Editorial 1" class="active" style="width: 100%; height: 100%; object-fit: cover;">
+            <img src="images/branding/com2.JPEG" alt="Editorial 2" style="width: 100%; height: 100%; object-fit: cover;">
+            <img src="images/branding/com3.JPEG" alt="Editorial 3" style="width: 100%; height: 100%; object-fit: cover;">
+            <img src="images/branding/com8.jpg" alt="Editorial 8" style="width: auto; height: 100%; object-fit: cover;">
+            <img src="images/branding/com9.jpg" alt="Editorial 6" style="width: auto; height: 100%; object-fit: cover;">
+            <video src="images/branding/unbox_com.MOV" muted loop style="width: auto; height: 100%; object-fit: cover;"></video>
+            <button class="arrow right" onclick="nextSlide(2)">›</button>
+          </div>
+          
+          <button class="arrow right" onclick="nextSlide(2)">›</button>
+        </div>
+        <div class="description">
+            CỐM (green rice) cosmetic line is more than just products — it’s a ritual that draws you into the feeling of autumn in Hanoi. Along with the perfume as the central piece, this product line includes a hair oil, a body scrub, and a hand cream. The perfume bottle is inspired by the nón lá, and opening the box feels like peeling back lotus leaves, just like unwrapping Cốm.        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Project Card 3 -->
+  <div class="project-card">
+    <div class="card-content">
+      <div class="card-header">
+        <div class="proj-number">[ 03 ]</div>
+        <div class="date">March 2025</div>
+        <div class="pro">Maple Bear Canadian School</div>
+      </div>
+      <div class="carousel-description-row">
+        <div class="carousel" data-project="3">
+          <button class="arrow left" onclick="prevSlide(3)">‹</button>
+          <img src="images/branding/concert1.JPG" class="active" style="width: 100%; height: 100%; object-fit: cover;" />
+          <img src="images/branding/concert 2.JPG" style="width: 100%; height: 100%; object-fit: cover;" />
+          <img src="images/branding/concert3.JPG" style="width: 100%; height: 100%; object-fit: cover;" />
+          <img src="images/branding/concert4.JPG" style="width: 100%; height: 100%; object-fit: cover;" />
+          <img src="images/branding/concert5.JPG" style="width: 100%; height: 100%; object-fit: cover;" />
+          <img src="images/branding/concert6.JPG" style="width: 100%; height: 100%; object-fit: cover;" />
+          <img src="images/branding/concert7.JPG" style="width: 100%; height: 100%; object-fit: cover;" />
+          <button class="arrow right" onclick="nextSlide(3)">›</button>
+        </div>
+        <div class="description">
+            Prints, screen design, and illustration for Maple Bear Summer Concert and Gradutation Ceremony 2025
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Project Card 4 -->
+  <div class="project-card">
+    <div class="card-content">
+      <div class="card-header">
+        <div class="proj-number">[ 04 ]</div>
+        <div class="date">February 2025</div>
+        <div class="pro">Nao Ito</div>
+      </div>
+      <div class="carousel-description-row">
+        <div class="carousel" data-project="4">
+          <button class="arrow left" onclick="prevSlide(4)">‹</button>
+          <img src="images/finearts/art1.png" class="active" style="width: 100%; height: 100%; object-fit: cover;" />
+          <img src="images/finearts/art2.png" style="display: none; width: 100%; height: 100%; object-fit: cover;" />
+          <button class="arrow right" onclick="nextSlide(4)">›</button>
+        </div>
+        <div class="description">
+          Experimental fine art project combining found materials and digital distortion. The series evokes ephemeral memory through fractured forms and layered textures.
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Project Card 5 -->
+  <div class="project-card">
+    <div class="card-content">
+      <div class="card-header">
+        <div class="proj-number">[ 05 ]</div>
+        <div class="date">January 2025</div>
+        <div class="pro">Hanae Mori</div>
+      </div>
+      <div class="carousel-description-row">
+        <div class="carousel" data-project="5">
+          <button class="arrow left" onclick="prevSlide(5)">‹</button>
+          <video src="images/branding/brand1.MOV" class="active" muted loop></video>
+          <img src="images/branding/brand2.jpg" style="display: none; width: 100%; height: 100%; object-fit: cover;" />
+          <button class="arrow right" onclick="nextSlide(5)">›</button>
+        </div>
+        <div class="description">
+          Branding identity for a boutique coffee roastery. Earth tones and rough textures nod to the raw process of roasting, while the logotype is custom drawn.
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    const slides = {};
+
+    function updateCarousel(projectId, direction) {
+      const carousel = document.querySelector(`.carousel[data-project="${projectId}"]`);
+      const items = Array.from(carousel.querySelectorAll('video, img'));
+      slides[projectId] = (slides[projectId] ?? 0) + direction;
+
+      if (slides[projectId] < 0) slides[projectId] = items.length - 1;
+      if (slides[projectId] >= items.length) slides[projectId] = 0;
+
+      items.forEach((el, i) => {
+        el.classList.toggle('active', i === slides[projectId]);
+        if (el.tagName === 'VIDEO') {
+          if (i === slides[projectId]) {
+            el.play();
+          } else {
+            el.pause();
+            el.currentTime = 0;
+          }
+        }
+      });
+    }
+
+    function nextSlide(projectId) {
+      updateCarousel(projectId, 1);
+    }
+
+    function prevSlide(projectId) {
+      updateCarousel(projectId, -1);
+    }
+
+    document.querySelectorAll('video').forEach(video => {
+      video.addEventListener('mouseenter', () => video.play());
+      video.addEventListener('mouseleave', () => video.pause());
+    });
+  </script>
+</body>
+</html>
