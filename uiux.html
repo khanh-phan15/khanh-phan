@@ -217,19 +217,41 @@ Khanh Phan is a graphic designer focusing on branding, prints, and UI/UX design,
     <a class="item" href="finearts.html">Fine Arts</a>
   </div>
   
-  <!-- Project Card 3 -->
-  <div class="project-card"id="project3">
+  <div class="project-card"id="project2">
     <div class="card-content">
       <div class="card-header">
         <div class="proj-number">[ 01 ]</div>
+        <div class="date">Dec 2025</div>
+        <div class="pro">YOUNIQUE</div>
+      </div>
+      <div class="carousel-description-row">
+        <div class="carousel" data-project="2">
+          <button class="arrow left" onclick="prevSlide(2)">‹</button>
+          <video id="project2-slide1" src="images/UI-UX/Youniquevid1.mov" class="active" muted loop></video>
+          <video src="images/UI-UX/Youniquevid2.mov" muted loop style="width: 100%; height: auto; object-fit: cover;"></video>
+          <video src="images/UI-UX/Youniquevid3.mov" muted loop style="width: 100%; height: auto; object-fit: cover;"></video>
+          <button class="arrow right" onclick="nextSlide(2)">›</button>
+
+        </div>
+
+        <div class="description">
+          YOUNIQUE is an educational app that provide knowledge about Body Dysmorphia Disorder helping users with body insecurity identity their problems through different exercises such as videos, multiple choice questions, though swiper and health tracking
+        </div>
+       
+    </div>
+  </div>
+  
+
+ <div class="project-card"id="project3">
+    <div class="card-content">
+      <div class="card-header">
+        <div class="proj-number">[ 02 ]</div>
         <div class="date">Oct 2025</div>
         <div class="pro">Flowers Flutter</div>
       </div>
       <div class="carousel-description-row">
         <div class="carousel" data-project="3">
-          <button class="arrow left" onclick="prevSlide(3)">‹</button>
           <video id="project3-slide1" src="images/UI-UX/FLowers-flutter.mov" class="active" muted loop style="width: 100%; height: auto; object-fit: cover;"></video>
-          <button class="arrow right" onclick="nextSlide(3)">›</button>
         </div>
         <div class="description">
           Transform from the physical publication “Flutter”, this’s a conceptual website portraying the idea of beauty being manipulated through interactive and animated typography. Please view the site on a laptop/desktop for the best experience (designed and hand-coded)
@@ -237,12 +259,17 @@ Khanh Phan is a graphic designer focusing on branding, prints, and UI/UX design,
         </div>
        
     </div>
-  </div>
-  
+  </div> 
+
+
+
+
+
+
   <div class="project-card"id="project1">
     <div class="card-content">
       <div class="card-header">
-        <div class="proj-number">[ 02 ]</div>
+        <div class="proj-number">[ 03 ]</div>
         <div class="date">May 2025</div>
         <div class="pro">Check-in</div>
       </div>
@@ -274,41 +301,44 @@ Khanh Phan is a graphic designer focusing on branding, prints, and UI/UX design,
   </div>
   
   <script>
-    const slides = {};
+ const slides = {};
 
-    function updateCarousel(projectId, direction) {
-      const carousel = document.querySelector(`.carousel[data-project="${projectId}"]`);
-      const items = Array.from(carousel.querySelectorAll('video, img'));
-      slides[projectId] = (slides[projectId] ?? 0) + direction;
+function updateCarousel(projectId, direction) {
+  const carousel = document.querySelector(`.carousel[data-project="${projectId}"]`);
+  const items = Array.from(carousel.querySelectorAll('video, img'));
 
-      if (slides[projectId] < 0) slides[projectId] = items.length - 1;
-      if (slides[projectId] >= items.length) slides[projectId] = 0;
+  // ✅ initialize if not set
+  if (slides[projectId] === undefined) {
+    slides[projectId] = items.findIndex(el => el.classList.contains('active'));
+    if (slides[projectId] === -1) slides[projectId] = 0;
+  }
 
-      items.forEach((el, i) => {
-        el.classList.toggle('active', i === slides[projectId]);
-        if (el.tagName === 'VIDEO') {
-          if (i === slides[projectId]) {
-            el.play();
-          } else {
-            el.pause();
-            el.currentTime = 0;
-          }
-        }
-      });
+  slides[projectId] += direction;
+
+  if (slides[projectId] < 0) slides[projectId] = items.length - 1;
+  if (slides[projectId] >= items.length) slides[projectId] = 0;
+
+  items.forEach((el, i) => {
+    el.classList.toggle('active', i === slides[projectId]);
+
+    if (el.tagName === 'VIDEO') {
+      if (i === slides[projectId]) {
+        el.play();
+      } else {
+        el.pause();
+        el.currentTime = 0;
+      }
     }
+  });
+}
 
-    function nextSlide(projectId) {
-      updateCarousel(projectId, 1);
-    }
+function nextSlide(projectId) {
+  updateCarousel(projectId, 1);
+}
 
-    function prevSlide(projectId) {
-      updateCarousel(projectId, -1);
-    }
-
-    document.querySelectorAll('video').forEach(video => {
-      video.addEventListener('mouseenter', () => video.play());
-      video.addEventListener('mouseleave', () => video.pause());
-    });
+function prevSlide(projectId) {
+  updateCarousel(projectId, -1);
+}
   </script>
 </body>
 </html>
