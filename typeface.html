@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Khanh Phan</title>
+  <style>
+    body {
+      font-family: Courier, monospace;
+      align-items: center;
+      height: 100vh;
+      background-color: rgba(250, 249, 247, 1);
+    }
+@font-face {
+  font-family: 'Retrogression';
+  src: url('fonts/Retrogression-Regular.woff2') format('woff2'),
+       url('fonts/Retrogression-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+    .menu {
+  display: flex;
+  margin: 0px;
+}
+
+.menu a {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: black;
+}
+
+.menu a:hover {
+  color: gray;
+}
+
+.menu a:nth-child(1) {
+  margin-right: 475px;
+}
+
+.menu a:nth-child(2) {
+  margin-right: 190px;
+}
+
+    .khanhphan {     
+      font-family: 'Retrogression'; 
+      font-size: 110pt;
+      margin: 10px 0 0 15px;
+    }
+
+    .khanhphan span:first-child {
+      margin-right: 178px;
+    }
+
+    .bio {
+      font-family: inherit;
+      font-size: 16px;
+      width: 450px;
+      margin: 20px 0 0 20px;
+    }
+
+    .category-menu {
+      display: flex;
+      flex-direction: column;
+      margin: -100px 0 0 625px;
+      gap: 10px;
+    }
+
+    .category-menu .item {
+      position: relative;
+      font-size: 18px;
+      cursor: pointer;
+      width: 300px;
+      padding-bottom: 4px;
+      color: black;
+      transition: color 0.3s ease;
+      text-decoration: none;
+    }
+
+    .category-menu .item:hover {
+      color: rgb(140, 0, 0);
+    }
+
+    .category-menu .item::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background-color: black;
+      transition: all 0.3s ease;
+    }
+
+    .category-menu .item:hover::after {
+      width: 115%;
+      background-color: rgb(140, 0, 0);
+    }
+
+   @font-face {
+    font-family: "Pagoda Display";
+    src: url("PagodaDisplay-Regular.woff2") format("woff2");
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.container{
+    max-width:1600px;
+    margin:auto;
+    padding:40px;
+}
+
+/* Controls */
+
+.controls{
+    display:flex;
+    gap:30px;
+    flex-wrap:wrap;
+    margin-bottom:30px;
+    padding-bottom:30px;
+    border-bottom:1px solid #ddd;
+}
+
+.control{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.control label{
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+}
+
+.control input{
+    width:180px;
+}
+
+/* Preview */
+
+.preview-section{
+    margin-bottom:100px;
+}
+
+.preview-text{
+    width:100%;
+    border:none;
+    background:none;
+    resize:none;
+    outline:none;
+    font-family:"Pagoda Display";
+    font-size:170px;
+    line-height:1.1;
+    letter-spacing:0px;
+    min-height:350px;
+    text-align: center;
+}
+
+/* Description */
+
+.about-blueprint{
+    display:grid;
+    grid-template-columns:40% 60%;
+    gap:60px;
+    margin-bottom:120px;
+    align-items:stretch;
+}
+
+.about-column{
+    display:flex;
+    flex-direction:column;
+    justify-content:left;
+}
+
+.about-column p{
+    font-family:'Pagoda Display';
+    font-size:23pt;
+    line-height:1.2;
+    text-align:left;
+}
+
+.about-column .subtitles{
+    margin-bottom:20px;
+}
+
+/* Glyph Section */
+
+.glyph-section{
+    display:grid;
+    grid-template-columns:1fr 500px;
+    gap:60px;
+    align-items:start;
+}
+
+.glyph-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(60px,1fr));
+    gap:10px;
+}
+
+.glyph{
+    aspect-ratio:1;
+    border:1px solid #ddd;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    font-family:"Pagoda Display";
+    font-size:2rem;
+    transition:.2s;
+}
+
+.glyph:hover{
+    background:rgb(0, 34, 126);
+    color:white;
+}
+
+.glyph-preview{
+    position:sticky;
+    top:40px;
+    border-left:1px solid #ddd;
+    padding-left:40px;
+}
+
+.preview-letter{
+    font-family:"Pagoda Display";
+    font-size:320px;
+    line-height:1;
+}
+
+.preview-code{
+    margin-top:20px;
+    color:#777;
+}
+
+.section-title{
+    margin-bottom:20px;
+    font-size:1rem;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+}
+
+
+/* Blueprint Section */
+
+.blueprint-showcase{
+    margin:120px 0;
+}
+
+.blueprint-wrapper{
+    position:relative;
+    min-height:700px;
+    background:#00258A;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+.blueprint-letter{
+    font-family:"Pagoda Display";
+    font-size:450px;
+    line-height:1;
+    color:white;
+    position:relative;
+    z-index:2;
+    transition:all 1.2s ease;
+}
+
+.blueprint-overlay{
+    position:absolute;
+    inset:0;
+    opacity:0;
+    transition:opacity 1s ease;
+}
+
+.blueprint-wrapper:hover .blueprint-overlay{
+    opacity:1;
+}
+
+.blueprint-wrapper:hover .blueprint-letter{
+    color:transparent;
+    -webkit-text-stroke:1px rgb(255, 255, 255);
+}
+
+.grid-horizontal,
+.grid-vertical{
+    position:absolute;
+    background:rgb(255, 255, 255);
+    opacity:.15;
+}
+
+.grid-horizontal{
+    width:100%;
+    height:1px;
+}
+
+.grid-horizontal:nth-child(1){top:20%;}
+.grid-horizontal:nth-child(2){top:40%;}
+.grid-horizontal:nth-child(3){top:60%;}
+.grid-horizontal:nth-child(4){top:80%;}
+
+.grid-vertical{
+    height:100%;
+    width:1px;
+}
+
+.grid-vertical:nth-child(5){left:20%;}
+.grid-vertical:nth-child(6){left:40%;}
+.grid-vertical:nth-child(7){left:60%;}
+.grid-vertical:nth-child(8){left:80%;}
+
+.measure{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    width:500px;
+    height:1px;
+    background:black;
+}
+
+.measure-top{
+    top:120px;
+}
+
+.measure-bottom{
+    bottom:120px;
+}
+
+.measure::before,
+.measure::after{
+    content:"";
+    position:absolute;
+    width:1px;
+    height:20px;
+    background:black;
+}
+
+.measure::before{
+    left:0;
+    top:-10px;
+}
+
+.measure::after{
+    right:0;
+    top:-10px;
+}
+.bezier-layer{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+}
+
+/* points */
+
+.bezier-point{
+    position:absolute;
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:white;
+
+    opacity:0;
+    transition:opacity .3s ease;
+}
+
+/* handles */
+
+.bezier-handle{
+    position:absolute;
+    height:1px;
+    background:white;
+
+    opacity:0;
+    transition:opacity .3s ease .15s;
+}
+
+/* example positions */
+
+.p1{
+    top:210px;
+    left:290px;
+}
+
+.p2{
+    top:310px;
+    left:240px;
+}
+
+.p3{
+    top:450px;
+    left:340px;
+}
+
+.p4{
+    top:520px;
+    left:430px;
+}
+
+.h1{
+    top:260px;
+    left:240px;
+    width:90px;
+    transform:rotate(-25deg);
+}
+
+.h2{
+    top:420px;
+    left:310px;
+    width:110px;
+    transform:rotate(35deg);
+}
+  </style>
+</head>
+<body>
+  <div class="menu">
+    <a href="index.html">[ UNZIP ]</a>
+    <a href="contact.html">[ contact ]</a>
+  </div>
+  
+
+  <div class="khanhphan"><span>Khanh</span><span>Phan</span></div>
+  <div class="bio">
+Khanh Phan is a graphic designer focusing on branding, prints, and UI/UX design, currently based in New York City. She has been studying Communication Design at Parsons School of Design since 2023.  </div>
+
+  <div class="category-menu">
+    <a class="item" href="branding.html">Branding</a>
+    <a class="item" href="editorial.html">Editorial</a>
+    <a class="item" href="uiux.html">UI/UX</a>
+    <a class="item" href="typeface.html">Typeface</a>
+    <a class="item" href="finearts.html">Fine Arts</a>
+  </div>
+  <div class="container">
+
+
+    <section class="controls">
+
+        <div class="control">
+            <label>Size</label>
+            <input type="range" id="size" min="40" max="220" value="120">
+        </div>
+
+        <div class="control">
+            <label>Tracking</label>
+            <input type="range" id="tracking" min="-5" max="30" value="0">
+        </div>
+
+        <div class="control">
+            <label>Leading</label>
+            <input type="range" id="leading" min="80" max="250" value="110">
+        </div>
+
+    </section>
+
+    <section class="preview-section">
+
+        <textarea class="preview-text" id="preview">
+Pagoda Display
+        </textarea>
+
+    </section>
+<section class="about-blueprint">
+
+    <div class="about-column">
+
+        <div class="subtitles">ABOUT</div>
+
+        <p>
+            Pagoda Display draws inspiration from Vietnamese temple and
+            pagoda architecture. The typeface translates roof silhouettes,
+            layered structures, and ornamental forms into a contemporary
+            display face while maintaining support for Vietnamese diacritics.
+            Designed for prints, branding, packaging, and cultural
+            applications, it contains high contrast and exaggeration in contrast.
+        </p>
+
+    </div>
+
+    <div class="blueprint-wrapper">
+
+        <div class="blueprint-letter" id="blueprintLetter">
+            A
+        </div>
+<div class="bezier-layer">
+
+    <div class="bezier-point p1"></div>
+    <div class="bezier-point p2"></div>
+    <div class="bezier-point p3"></div>
+    <div class="bezier-point p4"></div>
+
+    <div class="bezier-handle h1"></div>
+    <div class="bezier-handle h2"></div>
+
+</div>
+        <div class="blueprint-overlay">
+
+            <div class="grid-horizontal"></div>
+            <div class="grid-horizontal"></div>
+            <div class="grid-horizontal"></div>
+            <div class="grid-horizontal"></div>
+
+            <div class="grid-vertical"></div>
+            <div class="grid-vertical"></div>
+            <div class="grid-vertical"></div>
+            <div class="grid-vertical"></div>
+
+            <div class="measure measure-top"></div>
+            <div class="measure measure-bottom"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+        <h2 class="section-title">Character Set</h2>
+
+        <div class="glyph-section">
+
+            <div class="glyph-grid" id="glyphGrid"></div>
+
+            <div class="glyph-preview">
+
+                <div class="preview-letter" id="largeGlyph">
+                    A
+                </div>
+
+                <div class="preview-code" id="glyphName">
+                    Unicode: U+0041
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+ 
+<section class="blueprint-showcase">
+    <div class="blueprint-wrapper">
+
+        <div class="blueprint-letter" id="blueprintLetter">
+            A
+        </div>      
+
+    </div>
+
+</section>
+
+  </div>
+  
+  <script>
+    const preview = document.getElementById("preview");
+
+document.getElementById("size").addEventListener("input",(e)=>{
+    preview.style.fontSize = e.target.value + "px";
+});
+
+document.getElementById("tracking").addEventListener("input",(e)=>{
+    preview.style.letterSpacing = e.target.value + "px";
+});
+
+document.getElementById("leading").addEventListener("input",(e)=>{
+    preview.style.lineHeight = (e.target.value / 100);
+});
+
+const glyphs =
+"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠƯàáâãèéêìíòóôõùúăđĩũơưẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪỬỮỰỲỴỶỸ0123456789$,;.-!?'/&%*+=_(){}[]#@";
+
+const grid = document.getElementById("glyphGrid");
+const largeGlyph = document.getElementById("largeGlyph");
+const glyphName = document.getElementById("glyphName");
+
+glyphs.split("").forEach(char => {
+
+    const cell = document.createElement("div");
+
+    cell.className = "glyph";
+    cell.textContent = char;
+
+    cell.addEventListener("click", () => {
+
+        largeGlyph.textContent = char;
+
+        glyphName.textContent =
+            "Unicode: U+" +
+            char.charCodeAt(0)
+            .toString(16)
+            .toUpperCase()
+            .padStart(4,"0");
+
+    });
+
+    grid.appendChild(cell);
+
+});
+
+const blueprintLetter = document.getElementById("blueprintLetter");
+
+const letters = [
+    "v",
+    "R",
+    "G",
+    "Đ",
+    "Ô",
+    "P"
+];
+
+let current = 0;
+
+setInterval(() => {
+    current = (current + 1) % letters.length;
+    blueprintLetter.textContent = letters[current];
+}, 2500);
+  </script>
+</body>
+</html>
