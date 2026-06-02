@@ -9,6 +9,8 @@
       align-items: center;
       height: 100vh;
       background-color: rgba(250, 249, 247, 1);
+    overflow-x: hidden;
+
     }
 @font-face {
   font-family: 'Retrogression';
@@ -163,7 +165,50 @@
     min-height:350px;
     text-align: center;
 }
+/* Slider track */
 
+.control input[type="range"]{
+    -webkit-appearance:none;
+    appearance:none;
+
+    width:180px;
+    height:2px;
+    background:#00258A;
+    border-radius:999px;
+    cursor:pointer;
+}
+
+/* Chrome / Safari thumb */
+
+.control input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance:none;
+    appearance:none;
+
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:#00258A;
+    cursor:pointer;
+}
+
+/* Firefox thumb */
+
+.control input[type="range"]::-moz-range-thumb{
+    width:12px;
+    height:12px;
+    border:none;
+    border-radius:50%;
+    background:#00258A;
+    cursor:pointer;
+}
+
+/* Firefox track */
+
+.control input[type="range"]::-moz-range-track{
+    height:1px;
+    background:#00258A;
+    border:none;
+}
 /* Description */
 
 .about-blueprint{
@@ -172,10 +217,25 @@
     gap:60px;
     margin-bottom:120px;
     align-items:stretch;
+    color:white;
+    position:relative;
+    background:none;
+}
+
+.about-blueprint::before{
+    content:"";
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:-40px;
+    right:-40px;
+    background:#00258A;
+    z-index:-1;
 }
 
 .about-column{
     display:flex;
+    padding-top: 50px;
     flex-direction:column;
     justify-content:left;
 }
@@ -247,7 +307,34 @@
     text-transform:uppercase;
     letter-spacing:.1em;
 }
+.font-actions{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 
+    display: flex;
+    z-index: 9999;
+}
+
+.font-button{
+    flex: 1;
+    text-align: center;
+    padding: 18px;
+    text-decoration: none;
+    color: black;
+    background: rgba(250,249,247,.95);
+    border-top: 1px solid #00258A;
+}
+
+.font-button:first-child{
+    border-right: 1px solid #00258A;
+}
+
+.font-button:hover{
+    background:#00258A;
+    color:white;
+}
 
 /* Blueprint Section */
 
@@ -263,7 +350,9 @@
     justify-content:center;
     align-items:center;
     overflow:hidden;
+    padding-bottom:170px;
 }
+
 
 .blueprint-letter{
     font-family:"Pagoda Display";
@@ -286,138 +375,42 @@
     opacity:1;
 }
 
-.blueprint-wrapper:hover .blueprint-letter{
-    color:transparent;
-    -webkit-text-stroke:1px rgb(255, 255, 255);
+.blueprint-wrapper:hover .glyph-solid{
+    opacity:0;
 }
 
-.grid-horizontal,
-.grid-vertical{
-    position:absolute;
-    background:rgb(255, 255, 255);
-    opacity:.15;
+.blueprint-wrapper:hover .glyph-construction{
+    opacity:1;
 }
 
-.grid-horizontal{
-    width:100%;
-    height:1px;
-}
 
-.grid-horizontal:nth-child(1){top:20%;}
-.grid-horizontal:nth-child(2){top:40%;}
-.grid-horizontal:nth-child(3){top:60%;}
-.grid-horizontal:nth-child(4){top:80%;}
+.glyph-container{
+    position:relative;
+    width:600px;
+    height:500px;
 
-.grid-vertical{
-    height:100%;
-    width:1px;
-}
+transform: translateY(-60px);}
 
-.grid-vertical:nth-child(5){left:20%;}
-.grid-vertical:nth-child(6){left:40%;}
-.grid-vertical:nth-child(7){left:60%;}
-.grid-vertical:nth-child(8){left:80%;}
-
-.measure{
-    position:absolute;
-    left:50%;
-    transform:translateX(-50%);
-    width:500px;
-    height:1px;
-    background:black;
-}
-
-.measure-top{
-    top:120px;
-}
-
-.measure-bottom{
-    bottom:120px;
-}
-
-.measure::before,
-.measure::after{
-    content:"";
-    position:absolute;
-    width:1px;
-    height:20px;
-    background:black;
-}
-
-.measure::before{
-    left:0;
-    top:-10px;
-}
-
-.measure::after{
-    right:0;
-    top:-10px;
-}
-.bezier-layer{
+.glyph-solid,
+.glyph-construction{
     position:absolute;
     inset:0;
-    pointer-events:none;
+
+    width:110%;
+    height:auto;
+
+    object-fit:contain;
+    transition:opacity .6s ease;
 }
 
-/* points */
+.glyph-solid{
+    opacity:1;
+}
 
-.bezier-point{
-    position:absolute;
-    width:10px;
-    height:10px;
-    border-radius:50%;
-    background:white;
-
+.glyph-construction{
     opacity:0;
-    transition:opacity .3s ease;
 }
 
-/* handles */
-
-.bezier-handle{
-    position:absolute;
-    height:1px;
-    background:white;
-
-    opacity:0;
-    transition:opacity .3s ease .15s;
-}
-
-/* example positions */
-
-.p1{
-    top:210px;
-    left:290px;
-}
-
-.p2{
-    top:310px;
-    left:240px;
-}
-
-.p3{
-    top:450px;
-    left:340px;
-}
-
-.p4{
-    top:520px;
-    left:430px;
-}
-
-.h1{
-    top:260px;
-    left:240px;
-    width:90px;
-    transform:rotate(-25deg);
-}
-
-.h2{
-    top:420px;
-    left:310px;
-    width:110px;
-    transform:rotate(35deg);
-}
   </style>
 </head>
 <body>
@@ -467,6 +460,11 @@ Pagoda Display
         </textarea>
 
     </section>
+    <div class="font-actions">
+<a href="YOUR_GOOGLE_FORM_LINK" class="font-button" target="_blank">
+  Trial Font
+</a>  <a href="licenses.html" class="font-button">Licenses</a>
+</div>
 <section class="about-blueprint">
 
     <div class="about-column">
@@ -486,36 +484,22 @@ Pagoda Display
 
     <div class="blueprint-wrapper">
 
-        <div class="blueprint-letter" id="blueprintLetter">
-            A
-        </div>
-<div class="bezier-layer">
+<div class="glyph-container">
 
-    <div class="bezier-point p1"></div>
-    <div class="bezier-point p2"></div>
-    <div class="bezier-point p3"></div>
-    <div class="bezier-point p4"></div>
+    <img
+        class="glyph-solid"
+        src="images/typeface/ngoiden-solid.svg"
+        alt="E"
+    >
 
-    <div class="bezier-handle h1"></div>
-    <div class="bezier-handle h2"></div>
+    <img
+        class="glyph-construction"
+        src="images/typeface/ngoiden-construction.svg"
+        alt="E construction"
+    >
 
 </div>
-        <div class="blueprint-overlay">
-
-            <div class="grid-horizontal"></div>
-            <div class="grid-horizontal"></div>
-            <div class="grid-horizontal"></div>
-            <div class="grid-horizontal"></div>
-
-            <div class="grid-vertical"></div>
-            <div class="grid-vertical"></div>
-            <div class="grid-vertical"></div>
-            <div class="grid-vertical"></div>
-
-            <div class="measure measure-top"></div>
-            <div class="measure measure-bottom"></div>
-
-        </div>
+        
 
     </div>
 
@@ -545,16 +529,7 @@ Pagoda Display
 
 </div>
  
-<section class="blueprint-showcase">
-    <div class="blueprint-wrapper">
 
-        <div class="blueprint-letter" id="blueprintLetter">
-            A
-        </div>      
-
-    </div>
-
-</section>
 
   </div>
   
@@ -604,23 +579,7 @@ glyphs.split("").forEach(char => {
 
 });
 
-const blueprintLetter = document.getElementById("blueprintLetter");
 
-const letters = [
-    "v",
-    "R",
-    "G",
-    "Đ",
-    "Ô",
-    "P"
-];
-
-let current = 0;
-
-setInterval(() => {
-    current = (current + 1) % letters.length;
-    blueprintLetter.textContent = letters[current];
-}, 2500);
   </script>
 </body>
 </html>
